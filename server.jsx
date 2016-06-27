@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import * as reducers from 'reducers';
 
 const app = express();
-story
+
 app.use((req, res) => {
     const location = createLocation(req.url);
     const reducer = combineReducers(reducers);
