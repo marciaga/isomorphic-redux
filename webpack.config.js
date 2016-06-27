@@ -8,12 +8,12 @@ module.exports = {
         './client'
     ],
     output: {
-        path:     path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     resolve: {
         modulesDirectories: ['node_modules', 'shared'],
-        extensions:         ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx']
     },
     module: {
         loaders: [
@@ -22,7 +22,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loaders: ['react-hot', 'babel']
             }
-        ]
+        ],
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
