@@ -1,0 +1,3 @@
+* Currently, app is not serving the webpack bundle. Need to fix this before moving on to anything else.
+* Add Sass
+* Make production build

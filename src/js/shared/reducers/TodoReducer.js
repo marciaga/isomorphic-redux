@@ -1,4 +1,5 @@
-const defaultState = {}; 
+const defaultState = {};
+
 export default function todoReducer(state = defaultState, action) {
     switch(action.type) {
         case 'CREATE_TODO':

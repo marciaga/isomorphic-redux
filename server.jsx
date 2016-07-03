@@ -3,17 +3,15 @@ import React from 'react';
 import { renderToString } from 'react-dom/server'
 import { RouterContext, match } from 'react-router';
 import createLocation from 'history/lib/createHistory';
-import routes from 'routes';
-import { createStore, combineReducers } from 'redux';
+import routes from './src/js/shared/routes';
+import { configureStore } from './src/js/configure-store';
 import { Provider } from 'react-redux';
-import * as reducers from 'reducers';
 
 const app = express();
 
 app.use((req, res) => {
     const location = createLocation(req.url);
-    const reducer = combineReducers(reducers);
-    const store = createStore(reducer);
+    const store = configureStore({});
 
     match({ routes, location }, (err, redirectLocation, renderProps) => {
         if (err) {
@@ -31,7 +29,6 @@ app.use((req, res) => {
         );
         const initialState = store.getState();
         const componentHTML = renderToString(InitialComponent);
-
         const HTML = `<!DOCTYPE html>
             <html>
                 <head>
@@ -43,7 +40,7 @@ app.use((req, res) => {
                 </head>
                 <body>
                     <div id="react-view">${componentHTML}</div>
-                    <script type="application/javascript" src="/bundle.js"></script>
+                    <script src="/js/bundle.js"></script>
                 </body>
             </html>`;
 
