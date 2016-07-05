@@ -39,8 +39,8 @@ app.use((req, res) => {
                     </script>
                 </head>
                 <body>
-                    <div id="react-view">${componentHTML}</div>
-                    <script src="/js/bundle.js"></script>
+                    <div id="app">${componentHTML}</div>
+                    <script src="http://localhost:8080/js/bundle.js"></script>
                 </body>
             </html>`;
 

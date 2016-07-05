@@ -8,7 +8,7 @@ import { configureStore } from '../configure-store';
 let initialState = window.__INITIAL_STATE__;
 
 const store = configureStore(initialState);
-console.log(store);
+
 render (
     <Provider store={store}>
         <Router children={routes} history={browserHistory} />

@@ -17,15 +17,17 @@ const plugins = [
 
 module.exports = {
     env: process.env.NODE_ENV,
-    entry: './src/js/client/',
-    output: {
-        path: path.join(__dirname, 'public', 'js'),
-        filename: 'bundle.js',
-        publicPath: '/js/'
-    },
+    entry: [
+        './src/js/client'
+    ],
     resolve: {
         modulesDirectories: ['node_modules', 'src/js'],
         extensions: ['', '.js', '.jsx', '.scss']
+    },
+    output: {
+        path: path.join(__dirname, '/js'),
+        filename: 'bundle.js',
+        publicPath: 'http://localhost:8080/js'
     },
     module: {
         loaders: [

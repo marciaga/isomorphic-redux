@@ -4,7 +4,7 @@ export default class AppView extends Component {
   render() {
     return (
         <div id="app-view">
-            <h1>HELLO WORLD</h1>
+            <h1>HELLO Wallace</h1>
         </div>
     );
   }

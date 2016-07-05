@@ -1,5 +1,4 @@
-* Currently, app is not serving the webpack bundle. Need to fix this before moving on to anything else.
-
+* Add UI, redux
 * Add Sass
-
+* Add Ava test framework
 * Make production build
