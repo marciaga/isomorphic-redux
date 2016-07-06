@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Home from './Home';
 
-export default class AppView extends Component {
+const mapStateToProps = (state) => {
+    return {
+        todos: state.todos
+    };
+};
+class AppView extends Component {
     render() {
         return (
             <div id="app-view">
@@ -16,3 +22,5 @@ export default class AppView extends Component {
         );
     }
 }
+
+export const connectedComponent = connect(mapStateToProps)(AppView);

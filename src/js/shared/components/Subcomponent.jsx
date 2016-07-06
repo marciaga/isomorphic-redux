@@ -6,9 +6,7 @@ export default class SubComponent extends Component {
         return (
             <div>
                 <h1>Hello from SubComponent</h1>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                </ul>
+                <Link to="/">Home</Link>
             </div>
         );
     }
