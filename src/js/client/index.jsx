@@ -4,6 +4,7 @@ import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import routes from '../shared/routes';
 import { configureStore } from '../configure-store';
+import '../../css/master.scss';
 
 let initialState = window.__INITIAL_STATE__;
 

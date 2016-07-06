@@ -1,13 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const sassLoaders = [
-  'style-loader',
-  'css-loader?sourceMap',
-  'postcss-loader',
-  'sass-loader?outputStyle=expanded'
-];
 const plugins = [
+  new ExtractTextPlugin('[name].css'),
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('development'),
@@ -38,11 +35,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: sassLoaders.join('!')
-            },
-            {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader!postcss-loader'
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader?outputStyle=expanded')
             },
             // Inline base64 URLs for <=8k images, direct URLs for the rest
             {
@@ -52,10 +45,10 @@ module.exports = {
         ],
     },
     plugins: plugins,
-    postcss: function () {
-        return [autoprefixer({
+    postcss: [
+        autoprefixer({
           browsers: ['last 2 versions']
-        })];
-    },
+        })
+    ],
     devtool: 'cheap-module-eval-source-map',
 };

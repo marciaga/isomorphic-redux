@@ -1,4 +1,5 @@
-* Add UI, redux
-* Add Sass
+* Stub out redux and react components 
 * Add Ava test framework
 * Make production build
+* Add CI/deploy script
+* Refactor webpack dev config

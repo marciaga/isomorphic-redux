@@ -37,6 +37,7 @@ app.use((req, res) => {
                     <script type="application/javascript">
                         window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
                     </script>
+                    <link rel="stylesheet" href="http://localhost:8080/js/main.css" />
                 </head>
                 <body>
                     <div id="app">${componentHTML}</div>
