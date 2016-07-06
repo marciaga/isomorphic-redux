@@ -4,7 +4,9 @@ import {
     DELETE_TODO
 } from '../constants/todos';
 
-const initialState = {};
+const initialState = {
+    text: 'cat'
+};
 
 export default function todoReducer(state = initialState, action) {
     switch(action.type) {
