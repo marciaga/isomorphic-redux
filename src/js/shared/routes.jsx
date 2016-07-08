@@ -1,10 +1,10 @@
 import React     from 'react';
 import { Route } from 'react-router';
-import { connectedComponent } from './components';
-import SubComponent from './components/SubComponent';
+import App from './components';
+import SubComponent from './components/Subcomponent';
 
 export default (
-    <Route component={connectedComponent} path="/">
+    <Route component={App} path="/">
         <Route component={SubComponent} path="/somewhere" />
     </Route>
 );

@@ -3,8 +3,8 @@ import React from 'react';
 import { renderToString } from 'react-dom/server'
 import { RouterContext, match } from 'react-router';
 import createLocation from 'history/lib/createHistory';
-import routes from './src/js/shared/routes';
-import { configureStore } from './src/js/configure-store';
+import routes from './shared/routes';
+import { configureStore } from './configure-store';
 import { Provider } from 'react-redux';
 
 const app = express();
