@@ -7,7 +7,7 @@ export default class Home extends Component {
             <div>
                 <h1>Hello from Home Component</h1>
                 <ul>
-                    <li><Link to="/somewhere">SubComponent</Link></li>
+                    <li><Link to="/todos">SubComponent</Link></li>
                 </ul>
             </div>
         );

@@ -1,21 +1,29 @@
 import {
     CREATE_TODO,
-    EDIT_TODO,
     DELETE_TODO
 } from '../constants/todos';
 
 const initialState = [
-    { text: 'cat' }
+    {
+        text: 'cat',
+        id: Date.now()
+    }
 ];
 
 export default function todoReducer(state = initialState, action) {
     switch(action.type) {
         case CREATE_TODO:
-            return state.concat(action.text);
-        case EDIT_TODO:
-            return state.set(action.id, action.text);
+            return [
+                ...state,
+                action.data
+            ]
         case DELETE_TODO:
-            return state.delete(action.id);
+            let index = state.map(t => t.id).indexOf(action.id);
+
+            return [
+                ...state.slice(0, index),
+                ...state.slice(index + 1)
+            ]
         default:
             return state;
     }

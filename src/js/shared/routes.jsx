@@ -5,6 +5,6 @@ import SubComponent from './components/Subcomponent';
 
 export default (
     <Route component={App} path="/">
-        <Route component={SubComponent} path="/somewhere" />
+        <Route component={SubComponent} path="/todos" />
     </Route>
 );

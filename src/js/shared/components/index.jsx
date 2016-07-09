@@ -11,6 +11,7 @@ class App extends Component {
     render() {
         let { todos, children } = this.props;
         let childrenWithProps = children ? React.cloneElement(children, this.props) : '';
+
         return (
             <div id="app-view">
                 <Home todos={todos} />
