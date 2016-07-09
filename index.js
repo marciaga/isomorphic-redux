@@ -5,7 +5,8 @@ require('babel-register')({
 });
 
 var server = require('./src/js/server');
-const PORT = process.env.PORT || 3000;
+var isProduction = process.env.NODE_ENV === 'production';
+const PORT = isProduction ? process.env.PORT : 3000;
 
 server.default.listen(PORT, function () {
     console.log('Server listening on ', PORT);

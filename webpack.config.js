@@ -22,9 +22,9 @@ module.exports = {
         extensions: ['', '.js', '.jsx', '.scss']
     },
     output: {
-        path: path.join(__dirname, '/js'),
+        path: path.join(__dirname, '/assets'),
         filename: 'bundle.js',
-        publicPath: 'http://localhost:8080/js'
+        publicPath: 'http://localhost:8080/assets'
     },
     module: {
         loaders: [

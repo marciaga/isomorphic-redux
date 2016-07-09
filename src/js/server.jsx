@@ -29,6 +29,8 @@ app.use((req, res) => {
         );
         const initialState = store.getState();
         const componentHTML = renderToString(InitialComponent);
+        const jsAssetSource = process.env.NODE_ENV === 'production' ? 'js' : 'http://localhost:8080/assets';
+        const cssAssetSource = process.env.NODE_ENV === 'production' ? 'css' : 'http://localhost:8080/assets';
         const HTML = `<!DOCTYPE html>
             <html>
                 <head>
@@ -37,11 +39,11 @@ app.use((req, res) => {
                     <script type="application/javascript">
                         window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
                     </script>
-                    <link rel="stylesheet" href="http://localhost:8080/js/main.css" />
+                    <link rel="stylesheet" href="${cssAssetSource}/main.css" />
                 </head>
                 <body>
                     <div id="app">${componentHTML}</div>
-                    <script src="http://localhost:8080/js/bundle.js"></script>
+                    <script src="${jsAssetSource}/bundle.js"></script>
                 </body>
             </html>`;
 
