@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_PATH=$NODE_PATH:./shared node --harmony .",
-    "dev": "npm run start & webpack-dev-server --config webpack.config.js --hot --inline --progress",
+    "dev": "npm run start & webpack-dev-server --config webpack.config.js --progress --color",
     "build": "NODE_ENV=production webpack --progress --color -p --config webpack.config.prod.js",
     "test": "ava --verbose"
   },
