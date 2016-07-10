@@ -2,7 +2,7 @@
 - hosts: digitalocean
 
   vars:
-    do_token: DO_API_TOKEN
+    do_token: "{{ lookup('env', 'DO_API_TOKEN') }}"
 
   tasks:
   - name: ensure ssh key exists
@@ -12,7 +12,7 @@
       ssh_key_file=.ssh/id_rsa
 
   - debug: msg="{{ do_token }}"
-  
+
   - name: ensure key exists at DigitalOcean
     digital_ocean: >
       state=present
