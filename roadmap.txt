@@ -1,1 +1,1 @@
-* Add CI/deploy script: CircleCI, Ansible
+* Add CI/deploy script: Ansible
