@@ -25,6 +25,7 @@
       state=present
       command=droplet
       name=machine1
+      unique_name=yes
       size_id=512mb
       region_id=sgp1
       image_id=ubuntu-14-04-x64
