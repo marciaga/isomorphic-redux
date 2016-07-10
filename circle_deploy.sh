@@ -22,6 +22,7 @@ sudo apt-get install python-pip
 # Digital Ocean Py version must be this one
 sudo pip install 'dopy>=0.3.5,<=0.3.5'
 
+# Move to the Ansible directory
 cd ansible
 # Run the digital ocean playbook
 ansible-playbook digitalocean.yml
