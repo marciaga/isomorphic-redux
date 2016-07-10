@@ -12,13 +12,13 @@ export PYTHONPATH=/usr/local/lib/python2.7/dist-packages # add path for ec2.py
 #sudo sh -c "echo 'aws_secret_access_key = $AWS_SECRET_ACCESS_KEY' >> /etc/boto.cfg"
 
 set -e  # exit the script if any statement returns a non-true return value
-sudo apt-get install software-properties-common
-sudo apt-add-repository ppa:ansible/ansible
-sudo apt-get update
-yes '' || sudo apt-get install ansible
+
 
 cd ansible
 
+sudo apt-add-repository -y ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install -y ansible
 
 # Exit with status code 1 if anything fails
 if [ "$?" == "1" ]; then
