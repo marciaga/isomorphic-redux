@@ -11,8 +11,9 @@
       generate_ssh_key=yes
       ssh_key_file=.ssh/id_rsa
 
-  - name: ensure key exists at DigitalOcean
   - debug: msg="{{ do_token }}"
+  
+  - name: ensure key exists at DigitalOcean
     digital_ocean: >
       state=present
       command=ssh
