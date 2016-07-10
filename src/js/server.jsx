@@ -9,7 +9,7 @@ import { configureStore } from './configure-store';
 import { Provider } from 'react-redux';
 
 const app = express();
-app.use('/public', express.static(path.join(__dirname, './public')));
+app.use(express.static('public'));
 
 app.use((req, res) => {
     const location = createLocation(req.url);

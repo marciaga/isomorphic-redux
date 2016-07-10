@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var path = require('path');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -34,5 +35,16 @@ module.exports = {
       }
     ]
   },
-  plugins: [new ExtractTextPlugin('[name].css')]
+  plugins: [
+    new ExtractTextPlugin('[name].css'),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
+    })
+  ]
 };
