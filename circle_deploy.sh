@@ -13,8 +13,7 @@ export PYTHONPATH=/usr/local/lib/python2.7/dist-packages # add path for ec2.py
 
 set -e  # exit the script if any statement returns a non-true return value
 
-
-cd ansible
+# cd ansible
 
 sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
