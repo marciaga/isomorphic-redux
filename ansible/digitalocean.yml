@@ -12,12 +12,11 @@
       ssh_key_file=.ssh/id_rsa
 
   - name: ensure key exists at DigitalOcean
+  - debug: msg="{{ do_token }}"
     digital_ocean: >
       state=present
       command=ssh
       name=my_ssh_key
       ssh_pub_key={{ lookup('file', '~/.ssh/id_rsa.pub') }}
       api_token={{ do_token }}
-  - debug: msg="{{ do_token }}"
-  - debug: msg="{{ ssh_pub_key }}"
     register: my_ssh_key
