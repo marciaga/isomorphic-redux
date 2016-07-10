@@ -5,6 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const plugins = [
   new ExtractTextPlugin('[name].css'),
+  new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('development'),
@@ -15,6 +16,8 @@ const plugins = [
 module.exports = {
     env: process.env.NODE_ENV,
     entry: [
+        'webpack-dev-server/client?http://127.0.0.1:8080/',
+        'webpack/hot/only-dev-server',
         './src/js/client'
     ],
     resolve: {
@@ -22,9 +25,8 @@ module.exports = {
         extensions: ['', '.js', '.jsx', '.scss']
     },
     output: {
-        path: path.join(__dirname, '/js'),
+        path: path.join(__dirname, 'public'),
         filename: 'bundle.js',
-        publicPath: 'http://localhost:8080/js'
     },
     module: {
         loaders: [
@@ -50,5 +52,12 @@ module.exports = {
           browsers: ['last 2 versions']
         })
     ],
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'inline-source-map',
+    devServer: {
+    hot: true,
+    proxy: {
+      '*': 'http://127.0.0.1:' + (process.env.PORT || 3000)
+    },
+    host: '127.0.0.1'
+  }
 };

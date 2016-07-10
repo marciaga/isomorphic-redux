@@ -4,10 +4,12 @@ import { renderToString } from 'react-dom/server'
 import { RouterContext, match } from 'react-router';
 import createLocation from 'history/lib/createHistory';
 import routes from './shared/routes';
+import path from 'path';
 import { configureStore } from './configure-store';
 import { Provider } from 'react-redux';
 
 const app = express();
+app.use(express.static('public'));
 
 app.use((req, res) => {
     const location = createLocation(req.url);
@@ -29,7 +31,8 @@ app.use((req, res) => {
         );
         const initialState = store.getState();
         const componentHTML = renderToString(InitialComponent);
-        const HTML = `<!DOCTYPE html>
+        const HTML = `
+            <!DOCTYPE html>
             <html>
                 <head>
                     <meta charset="utf-8">
@@ -37,13 +40,15 @@ app.use((req, res) => {
                     <script type="application/javascript">
                         window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
                     </script>
-                    <link rel="stylesheet" href="http://localhost:8080/js/main.css" />
+                    <link rel="stylesheet" href="/main.css" />
+
                 </head>
                 <body>
                     <div id="app">${componentHTML}</div>
-                    <script src="http://localhost:8080/js/bundle.js"></script>
+                    <script type="application/javascript" src="/bundle.js"></script>
                 </body>
-            </html>`;
+            </html>
+            `;
 
         res.end(HTML);
     });
