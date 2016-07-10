@@ -4,7 +4,6 @@ import { renderToString } from 'react-dom/server'
 import { RouterContext, match } from 'react-router';
 import createLocation from 'history/lib/createHistory';
 import routes from './shared/routes';
-import path from 'path';
 import { configureStore } from './configure-store';
 import { Provider } from 'react-redux';
 

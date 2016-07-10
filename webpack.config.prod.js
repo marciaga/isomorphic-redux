@@ -11,10 +11,10 @@ module.exports = {
   ],
   resolve: {
     modulesDirectories: ['node_modules', 'src/js'],
-    extensions:        ['', '.js', '.jsx', '.scss']
+    extensions: ['', '.js', '.jsx', '.scss']
   },
   output: {
-    path:     path.join(__dirname, outDirectory),
+    path: path.join(__dirname, outDirectory),
     filename: 'bundle.js'
   },
   module: {
