@@ -11,8 +11,6 @@
       generate_ssh_key=yes
       ssh_key_file=.ssh/id_rsa
 
-  - debug: msg="{{ do_token }}"
-
   - name: ensure key exists at DigitalOcean
     digital_ocean: >
       state=present
@@ -21,3 +19,17 @@
       ssh_pub_key={{ lookup('file', '~/.ssh/id_rsa.pub') }}
       api_token={{ do_token }}
     register: my_ssh_key
+
+  - name: ensure droplet one exists
+    digital_ocean: >
+      state=present
+      command=droplet
+      name=machine1
+      size_id=512mb
+      region_id=sgp1
+      image_id=ubuntu-14-04-x64
+      ssh_key_ids={{ my_ssh_key.ssh_key.id }}
+      api_token={{ do_token }}
+    register: droplet_one
+
+  - debug: msg="IP is {{ droplet_one.droplet.ip_address }}"
