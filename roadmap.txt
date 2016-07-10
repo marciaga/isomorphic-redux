@@ -1,4 +1,1 @@
-* Stub out redux and react components
-* Make production webpack build
 * Add CI/deploy script: CircleCI, Ansible
-* Refactor webpack dev config
