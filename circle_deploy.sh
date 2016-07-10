@@ -13,11 +13,18 @@ export PYTHONPATH=/usr/local/lib/python2.7/dist-packages # add path for ec2.py
 
 set -e  # exit the script if any statement returns a non-true return value
 
-# cd ansible
-
+# install Ansible
 sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install -y ansible
+# Install Digital Ocean-related packages
+sudo apt-get install python-pip
+# Digital Ocean Py version must be this one
+sudo pip install 'dopy>=0.3.5,<=0.3.5'
+
+cd ansible
+# Run the digital ocean playbook
+ansible-playbook digitalocean.yml
 
 # Exit with status code 1 if anything fails
 if [ "$?" == "1" ]; then
