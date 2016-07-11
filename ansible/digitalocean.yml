@@ -34,3 +34,10 @@
     register: droplet_one
 
   - debug: msg="IP is {{ droplet_one.droplet.ip_address }}"
+
+  - name: Pull the code from Github
+    git:
+      repo: git@github.com:marciaga/isomorphic-redux.git
+      dest: ~
+      version: master
+      force: yes
