@@ -8,11 +8,11 @@ deployment:
     codedeploy:
       isomorphic-redux:
         application_root: /
-        region: us-east-1
+        region: us-west-2
         revision_location:
           revision_type: S3
           s3_location:
-            bucket: S3_BUCKET
+            bucket: isomorphic-redux-deploy
             key_pattern: isomorphic-redux-{BRANCH}-{SHORT_COMMIT}
         deployment_group: my-deployment-group
 general:
