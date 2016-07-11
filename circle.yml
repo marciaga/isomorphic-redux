@@ -2,12 +2,19 @@ machine:
   node:
     version: 4.4.7
 
-deployment: # once tests have passed, deploy with ansible
+deployment:
   production:
     branch: master
-    commands:
-      - ./circle_deploy.sh
-
+    codedeploy:
+      isomorphic-redux:
+        application_root: /
+        region: us-east-1
+        revision_location:
+          revision_type: S3
+          s3_location:
+            bucket: S3_BUCKET
+            key_pattern: isomorphic-redux-{BRANCH}-{SHORT_COMMIT}
+        deployment_group: my-deployment-group
 general:
   branches:
     only: # run builds on pushes to these branches
