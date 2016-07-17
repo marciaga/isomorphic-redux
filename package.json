@@ -9,11 +9,11 @@
     "build": "NODE_ENV=production webpack --progress --color -p --config webpack.config.prod.js",
     "test": "ava --verbose"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Arciaga",
+  "license": "MIT",
   "devDependencies": {
     "ava": "^0.15.2",
-    "babel-eslint": "^6.1.0",
+    "babel-eslint": "^6.1.0"
   },
   "dependencies": {
     "autoprefixer": "^6.3.7",
