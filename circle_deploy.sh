@@ -17,15 +17,12 @@ set -e  # exit the script if any statement returns a non-true return value
 sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install -y ansible
-# Install Digital Ocean-related packages
 sudo apt-get install python-pip
-# Digital Ocean Py version must be this one
-sudo pip install 'dopy>=0.3.5,<=0.3.5'
 
 # Move to the Ansible directory
 cd ansible
-# Run the digital ocean playbook
-ansible-playbook digitalocean.yml
+# Run the playbook
+# ansible-playbook [filename].yml
 
 # Exit with status code 1 if anything fails
 if [ "$?" == "1" ]; then

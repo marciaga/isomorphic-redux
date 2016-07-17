@@ -1,5 +1,0 @@
-[digitalocean]
-localhost ansible_connection=local
-
-[droplets]
-alias ansible_ssh_host=SOME_IP
