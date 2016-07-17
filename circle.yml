@@ -5,6 +5,8 @@ machine:
 deployment:
   production:
     branch: master
+    commands:
+      - ./circle_deploy.sh
 general:
   branches:
     only: # run builds on pushes to these branches
