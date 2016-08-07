@@ -9,5 +9,5 @@ deployment:
       - ./circle_deploy.sh
 general:
   branches:
-    only: # run builds on pushes to these branches
+    only: # run builds only on pushes to the following branches
       - master
