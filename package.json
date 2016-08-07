@@ -2,6 +2,10 @@
   "name": "isomorphic-redux",
   "version": "0.0.1",
   "description": "An isomorphic React app with Redux",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marciaga/isomorphic-redux"
+  },
   "main": "index.js",
   "scripts": {
     "dev-server": "webpack-dev-server --config webpack.config.js --progress --color",
